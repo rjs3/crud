@@ -1,0 +1,37 @@
+.fixed-action-btn {
+  position: absolute;
+}
+
+.btn-floating.btn-large i {
+  background: #f2f2f2;
+  color: rebeccapurple;
+}
+
+.btn-floating.btn-large {
+  border: 1px solid rebeccapurple;
+}
+
+.avatar {
+  font-size: 13px;
+}
+
+.avatar .title {
+  font-size: 15px;
+  color: rebeccapurple;
+}
+
+.icon-avatar {
+  position: absolute;
+  left: 0;
+}
+
+.icon-avatar i {
+  font-size: 50px;
+  margin-left: 12px;
+  margin-top: 5px;
+  color: #e2e2e2;
+}
+
+.favorited {
+  color: red !important;
+}

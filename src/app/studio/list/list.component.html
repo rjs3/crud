@@ -1,0 +1,40 @@
+<ul class="collection">
+  <li class="collection-item avatar" *ngFor="let usuario of usuarios">
+    <div class="icon-avatar">
+      <i class="material-icons" [ngClass]="{'favorited' : usuario.favorited}">person_pin</i>
+    </div>
+    <span class="title">
+      <b>Nome: </b>{{ usuario.nome }}</span>
+    <p>
+      <b>EID: </b>{{ usuario.eid }}
+      <br>
+      <b>Carreer Level: </b> {{ usuario.cl }}
+    </p>
+
+    <div class="fixed-action-btn horizontal">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">menu</i>
+      </a>
+      <ul>
+        <li>
+          <a class="btn-floating  yellow darken-1">
+            <i class="material-icons">star_border</i>
+          </a>
+        </li>
+        <li>
+          <a class="btn-floating blue">
+            <i class="material-icons">edit</i>
+          </a>
+        </li>
+        <li>
+          <a class="btn-floating red" (click)='deleteUser(usuario.eid)'>
+            <i class="material-icons">delete_forever</i>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </li>
+</ul>
