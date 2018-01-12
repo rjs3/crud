@@ -1,12 +1,20 @@
+<div class="box-search">
+  <div class="input-field col s12">
+    <input id="input_text" type="text" name="search">
+    <label for="input_text">Pesquisar</label>
+  </div>
+</div>
+
+
 <ul class="collection">
-  <li class="collection-item avatar" *ngFor="let usuario of usuarios">
+  <li class="collection-item avatar fadeInDown animated" *ngFor="let usuario of usuarios ">
     <div class="icon-avatar">
-      <i class="material-icons" [ngClass]="{'favorited' : usuario.favorited}">person_pin</i>
+      <i class="material-icons" *ngIf="usuario.favorited == true">star</i>
     </div>
     <span class="title">
-      <b>Nome: </b>{{ usuario.nome }}</span>
+      {{ usuario.nome }}</span>
     <p>
-      <b>EID: </b>{{ usuario.eid }}
+      <b>PID: </b>{{ usuario.pid }}
       <br>
       <b>Carreer Level: </b> {{ usuario.cl }}
     </p>
@@ -17,8 +25,9 @@
       </a>
       <ul>
         <li>
-          <a class="btn-floating  yellow darken-1">
-            <i class="material-icons">star_border</i>
+          <a class="btn-floating  yellow darken-1" (click)="favoriteUser(usuario)">
+            <i class="material-icons" *ngIf="usuario.favorited == false" >star_border</i>
+            <i class="material-icons" *ngIf="usuario.favorited == true">star</i>
           </a>
         </li>
         <li>
@@ -27,7 +36,7 @@
           </a>
         </li>
         <li>
-          <a class="btn-floating red" (click)='deleteUser(usuario.eid)'>
+          <a class="btn-floating red" (click)='deleteUser(usuario.pid)'>
             <i class="material-icons">delete_forever</i>
           </a>
         </li>
@@ -38,3 +47,26 @@
 
   </li>
 </ul>
+
+<div *ngIf="usuarios.length > 0">
+  <div class="chip">
+    <b>{{ usuarios.length }}</b> Usuários encontrados
+    <i class="close material-icons">close</i>
+  </div>
+
+</div>
+
+<div *ngIf="usuarios.length == 0">
+  <!-- Primary Message -->
+  <div class="xd-message">
+    <div class="xd-message-icon">
+      <i class="ion-alert"></i>
+    </div>
+    <div class="xd-message-content">
+      <p>Nenhum usuário cadastrado até o momento.</p>
+    </div>
+    <a class="xd-message-close">
+      <i class="material-icons">mood_bad</i>
+    </a>
+  </div>
+</div>

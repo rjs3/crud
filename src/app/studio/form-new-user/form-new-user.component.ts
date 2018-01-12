@@ -17,7 +17,14 @@ export class FormNewUserComponent implements OnInit {
   ngOnInit() {}
 
   inserirUsuario(form) {
-    this.usuario = form.value;
+    console.log(form);
+    this.usuario = {
+      nome: form.value.nome,
+      pid: form.value.pid,
+      cl: form.value.cl,
+      favorited: false
+    };
+
     this._studioService.insertNewUser(this.usuario);
     form.reset();
   }

@@ -12,19 +12,19 @@ export class StudioService {
     return this.usuarios = [
       {
         nome: 'Rodrigo Santos',
-        eid: 'rodrigo.dos.a.santos',
+        pid: '11100120',
         cl: 11,
         favorited: false
       },
       {
         nome: 'Rodolfo Almeida',
-        eid: 'rodolfo.almeida',
+        pid: '11102011',
         cl: 11,
         favorited: true
       },
       {
         nome: 'Marcelo Galvão',
-        eid: 'marcelo.galvao',
+        pid: '20102010',
         cl: 10,
         favorited: false
       }
@@ -37,12 +37,22 @@ export class StudioService {
   }
 
   // Deleta o usuario do array baseado na lista de Usuarios
-  deleteUser(eid) {
+  deleteUser(pid) {
     this.array =  this.usuarios.filter( function( elem, index, arr ) {
-      return elem.eid !== eid;
+      return elem.pid !== pid;
     });
     this.usuarios = this.array;
     return this.usuarios;
+  }
+
+  // Favorita um usuario
+  favoriteUser(pid) {
+    const arrAux = this.usuarios.filter( function( elem, index, arr ) {
+      if (elem.pid === pid) {
+        elem.favorited = !elem.favorited;
+      }
+    });
+    return arrAux;
   }
 
 }

@@ -7,13 +7,14 @@ import { StudioComponent } from './studio.component';
 import { FormNewUserComponent } from './form-new-user/form-new-user.component';
 
 import { StudioService } from './studio.service';
+import { SearchFilterPipe } from '../shared/search.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [ListComponent, StudioComponent, FormNewUserComponent],
+  declarations: [ListComponent, StudioComponent, FormNewUserComponent, SearchFilterPipe],
   exports: [ListComponent, StudioComponent],
   providers: [StudioService]
 })

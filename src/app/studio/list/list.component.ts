@@ -9,16 +9,23 @@ import { StudioService } from './../studio.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  
   usuarios;
   uniqueArray = [];
+
   constructor(private _studioService: StudioService) {}
 
   ngOnInit() {
     this.usuarios = this._studioService.getDadosUsuarios();
   }
 
-  deleteUser(eid) {
-    this.usuarios = this._studioService.deleteUser(eid);
+  deleteUser(pid) {
+    this.usuarios = this._studioService.deleteUser(pid);
+  }
+
+  favoriteUser(usuario) {
+    const pid = usuario.pid;
+    this._studioService.favoriteUser(pid);
   }
 
 }

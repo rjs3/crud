@@ -1,20 +1,21 @@
 <br/>
-<a class="waves-effect waves-light btn" *ngIf="!showForm" (click)="showForm = true">
+<a class="waves-effect waves-light btn fadeIn animated" *ngIf="!showForm" (click)="showForm = true">
   <i class="material-icons right">add</i>Adicionar Usuário </a>
+  
 
-<div *ngIf="showForm" class="box-form">
+<div *ngIf="showForm" class="box-form fadeIn animated">
   <form #f='ngForm' (ngSubmit)="inserirUsuario(f)">
     <div class="row">
       <div class="input-field col s4">
-        <input id="nome" type="text" name="nome" ngModel>
+        <input id="nome" type="text" name="nome" ngModel required>
         <label for="nome">Nome</label>
       </div>
       <div class="input-field col s4">
-        <input id="eid" type="text" name="eid" ngModel>
-        <label for="eid">EID</label>
+        <input id="pid" type="text" name="pid" ngModel required>
+        <label for="pid">PID</label>
       </div>
       <div class="input-field col s4">
-        <input id="cl" type="number" min="1" max="13" name="cl" ngModel>
+        <input id="cl" type="number" min="1" max="13" name="cl" ngModel required>
         <label for="cl">Carreer Level</label>
       </div>
 
@@ -22,10 +23,11 @@
         <i class="material-icons right">arrow_upward</i>Voltar</button>
       <button type="button" class="waves-effect waves-light btn amber accent-4" (click)="clearForm(f)">
         <i class="material-icons right">clear</i>Limpar</button>
-      <button type="submit" class="waves-effect waves-light btn">
+      <button type="submit" class="waves-effect waves-light btn"  [disabled]="!f.valid">
         <i class="material-icons right">arrow_downward</i>Inserir</button>
 
     </div>
   </form>
 
 </div>
+
